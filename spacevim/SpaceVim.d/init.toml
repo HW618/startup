@@ -1,0 +1,169 @@
+#=============================================================================
+# dark_powered.toml --- dark powered configuration example for SpaceVim
+# Copyright (c) 2016-2022 Wang Shidong & Contributors
+# Author: Wang Shidong < wsdjeg@outlook.com >
+# URL: https://spacevim.org
+# License: GPLv3
+#=============================================================================
+
+# Language Layers
+[[layers]]
+  name = "lang#sh"
+
+[[layers]]
+  name = 'lang#go'
+
+[[layers]]
+  name = "lang#c"
+#  enable_clang_syntax_highlight = true
+
+[[layers]]
+  name = "lang#cmake"
+
+#[[layers]]
+#  name = "lang#html"
+#  emmet_leader_key = "<C-e>"
+#  emmet_filetyps = ['html']
+
+[[layers]]
+  name = 'lang#dockerfile'
+
+[[layers]]
+  name = "lang#sh"
+
+[[layers]]
+  name = 'lang#python'
+  enable_typeinfo = true
+  format_on_save = true
+  enabled_linters = ['python', 'pylint']
+
+#[[layers]]
+#  name = "lang#javascript"
+#  auto_fix = true
+#  enable_flow_syntax = true
+
+# Tool Layers
+
+[[layers]]
+name = 'autocomplete'
+auto_completion_return_key_behavior = "complete"
+auto_completion_tab_key_behavior = "smart"
+
+[[layers]]
+name = 'shell'
+default_position = 'top'
+default_height = 30
+
+[[layers]]
+  name = "tools"
+
+[[layers]]
+    name = "incsearch"
+
+[[layers]]
+    name = "lsp"
+    filetypes = [
+      "c",
+      "cpp"
+    ]
+    [layers.override_cmd]
+        c = ["clangd"]
+
+# SPC b f 
+[[layers]]
+  name = "format"
+[[layers]]
+  name = 'git'
+  git_plugin = 'fugitive'
+
+[[layers]]
+  name = 'foldsearch'
+
+[[layers]]
+  name = 'VersionControl'
+
+[[layers]]
+  name = "ui"
+    enable_sidebar = false
+    enable_scrollbar = false
+    enable_indentline = true
+    enable_cursorword = false
+    indentline_char = '|'
+    conceallevel = 0
+    concealcursor = ''
+    cursorword_delay = 50
+    cursorword_exclude_filetype = []
+    indentline_exclude_filetype = []
+
+[[layers]]
+  name = "core#statusline"
+#  enable = false
+
+[[layers]]
+  name = "core#tabline"
+  enable = false
+
+[[layers]]
+  name = "core#banner"
+  enable = false
+
+[[layers]]
+  name = "default"
+
+[[layers]]
+  name = "colorscheme"
+[[layers]]
+  name = "fzf"
+
+[[layers]]
+  name = "tags"
+  gtagslabel = "pygments"
+#gtagslabel = "ctags"
+
+# CUSTOM_PLUGINS
+[[custom_plugins]]
+  repo = "tpope/vim-commentary"
+  merged = false
+[[custom_plugins]]
+  repo = "vim-airline/vim-airline-themes"
+  merged = false
+[[custom_plugins]]
+  repo = 'vim-airline/vim-airline'
+  merged = false
+
+# Settings 
+## Text Settings
+[options]
+    default_indent = 2
+    expand_tab = true
+
+[options]
+    project_rooter_patterns = ['.git/', '_darcs/', '.hg/', '.bzr/', '.svn/','.mod','.sum']
+    filemanager = "nerdtree"
+    filetree_show_hidden = true
+#
+# All SpaceVim option below [option] section
+[options]
+    # set spacevim theme. by default colorscheme layer is not loaded,
+    # if you want to use more colorscheme, please load the colorscheme
+    # layer
+    colorscheme = "onedark"
+    colorscheme_bg = "dark"
+    # Disable guicolors in basic mode, many terminal do not support 24bit
+    # true colors
+    enable_guicolors = false
+    # Disable statusline separator, if you want to use other value, please
+    # install nerd fonts
+    statusline_separator = "nil"
+    statusline_iseparator = "nil"
+    buffer_index_type = 4
+    enable_tabline_filetype_icon = true
+    enable_statusline_mode = false
+    autocomplete_method = "deoplete"
+
+## BootStrap
+[options]
+    bootstrap_before = "myspacevim#before"
+    bootstrap_after  = "myspacevim#after"
+    relativenumber = false
+
